@@ -1,24 +1,14 @@
 from fastapi import FastAPI
-from sqlmodel import Field, Session, SQLModel, create_engine, select
-from .config import settings
+from sqlmodel import Session
+from .db import engine, init_db
+from config import settings
 
-
-
-engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI))
-
-def create_db_and_tables():
-    SQLModel.metadata.create_all(engine)
-
-
-def get_session():
-    with Session(engine) as session:
-        yield session
-
-app = FastAPI()
+app = FastAPI(title=settings.app_name)
 
 @app.on_event("startup")
 def on_startup():
-    create_db_and_tables()
+    with Session(engine) as session:
+        init_db(session)
 
 @app.get("/")
 def read_root():
