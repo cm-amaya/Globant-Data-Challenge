@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from sqlmodel import Session
-from .db import engine, init_db
+from db import engine, init_db
 from config import settings
 
 app = FastAPI(title=settings.app_name)
