@@ -5,12 +5,16 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file="../.env",
                                       env_ignore_empty=True)
     app_name: str = "Globant API"
-    POSTGRES_SERVER: str
+    POSTGRES_SERVER: str = "localhost"
     POSTGRES_PORT: int = 5432
-    POSTGRES_USER: str
-    POSTGRES_PASSWORD: str = ""
-    POSTGRES_DB: str = ""
+    POSTGRES_USER: str = "postgres"
+    POSTGRES_PASSWORD: str
+    POSTGRES_DB: str = "postgres"
     POSTGRES_SCHEMA: str = "public"
+
+    EMPLOYEE_CSV_PATH: str = "../docs/initial_files/hired_employees.csv"
+    DEPARTMENT_CSV_PATH: str="../docs/initial_files/departments.csv"
+    JOBS_CSV_PATH: str ="../docs/initial_files/jobs.csv"
 
     @computed_field  # type: ignore[prop-decorator]
     @property
