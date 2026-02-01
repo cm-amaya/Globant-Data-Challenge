@@ -4,7 +4,7 @@ from fastapi import FastAPI, Depends, Query
 from sqlmodel import Session, select
 from db import engine, init_db
 from config import settings
-from models import Employee
+from models import Employee, Job, Department
 
 app = FastAPI(title=settings.app_name)
 
@@ -31,3 +31,19 @@ def get_employees(
 ) -> list[Employee]:
     employees = session.exec(select(Employee).offset(offset).limit(limit)).all()
     return employees
+
+@app.post("/batch_insert/")
+def batch_insert(
+    session: SessionDep,
+    employee_list: list[Employee] = [],
+    jobs_list: list[Job] = [],
+    department_list: list[Department] = []
+):
+    for job in jobs_list:
+        session.add(job)
+    for department in department_list:
+        session.add(department)
+    for employee in employee_list:
+        session.add(employee)
+    session.commit()
+    return {"Hello": "World"}
