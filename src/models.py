@@ -12,5 +12,5 @@ class Employee(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True)
     name: str | None  = Field(default=None)
     datetime: str | None  = Field(default=None)
-    department_id: int | None  = Field(foreign_key="department.id")
-    job_id: int | None = Field(foreign_key="job.id")
+    department_id: int | None  = Field(default=None, foreign_key="department.id")
+    job_id: int | None = Field(default=None, foreign_key="job.id")
