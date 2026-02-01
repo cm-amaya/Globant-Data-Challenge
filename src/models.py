@@ -10,7 +10,7 @@ class Job(SQLModel, table=True):
 
 class Employee(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True)
-    name: str = Field(default=None)
-    datetime: str = Field(default=None)
-    department_id: int = Field(foreign_key="department.id")
-    job_id: int = Field(foreign_key="job.id")
+    name: str | None  = Field(default=None)
+    datetime: str | None  = Field(default=None)
+    department_id: int | None  = Field(foreign_key="department.id")
+    job_id: int | None = Field(foreign_key="job.id")
