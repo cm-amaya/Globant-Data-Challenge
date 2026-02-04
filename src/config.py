@@ -5,7 +5,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env",
                                       env_ignore_empty=True)
     app_name: str = "Globant API"
-    POSTGRES_HOST: str = "localhost"
+    POSTGRES_HOST: str = "db"
     POSTGRES_PORT: int = 5432
     POSTGRES_USER: str = "postgres"
     POSTGRES_PASSWORD: str
