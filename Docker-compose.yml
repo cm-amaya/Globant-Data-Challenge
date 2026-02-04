@@ -6,12 +6,12 @@ services:
     volumes:
       - .:/app
       - /app/.venv
-    env_file:
-      - path: ./.env
-        required: true # default
     environment:
       POSTGRES_HOST: db
       POSTGRES_PORT: 5433
+    env_file:
+      - path: ./.env
+        required: true # default
     ports:
       - "8000:8000"
 
