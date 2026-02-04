@@ -23,6 +23,7 @@ For local development and testing, a Postgres server must be used. Create an env
 ```bash
 POSTGRES_USER="{USER}"
 POSTGRES_DB="{DB}"
+POSTGRES_HOST="localhost"
 POSTGRES_PASSWORD="{PASSWORD}"
 EMPLOYEE_CSV_PATH="{PATH_TO_CSV}"
 DEPARTMENT_CSV_PATH="{PATH_TO_CSV}"
@@ -39,5 +40,6 @@ uv run uvicorn src.main:app --reload
 Run using Docker compose:
 
 ```bash
+docker-compose build --no-cache
 docker-compose up -d
 ```
