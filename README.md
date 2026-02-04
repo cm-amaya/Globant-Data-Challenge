@@ -20,7 +20,6 @@ Create an enviroment file (`.env`) with the following enviroment variables, repl
 
 ```bash
 POSTGRES_USER="postgres"
-POSTGRES_SERVER="localhost"
 POSTGRES_DB="postgres"
 POSTGRES_PORT="5432"
 POSTGRES_PASSWORD="{PASSWORD}"
