@@ -2,7 +2,7 @@ from pydantic import PostgresDsn, computed_field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file="../.env",
+    model_config = SettingsConfigDict(env_file=".env",
                                       env_ignore_empty=True)
     app_name: str = "Globant API"
     POSTGRES_SERVER: str = "localhost"

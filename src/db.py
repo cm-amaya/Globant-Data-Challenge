@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 from sqlalchemy import inspect, create_engine
 from sqlmodel import SQLModel, Session, create_engine, select
-from config import settings
-from models import Employee
+from src.config import settings
+from src.models import Employee
 
 engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI))
 

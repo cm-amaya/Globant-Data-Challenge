@@ -2,9 +2,9 @@ from typing import Annotated
 
 from fastapi import FastAPI, Depends, Query
 from sqlmodel import Session, select
-from db import engine, init_db
-from config import settings
-from models import Employee, Job, Department
+from src.db import engine, init_db
+from src.config import settings
+from src.models import Employee, Job, Department
 
 app = FastAPI(title=settings.app_name)
 
